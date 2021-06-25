@@ -1,0 +1,15 @@
+#toyprojects{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+#toyprojects > a{
+    margin-bottom: 10px;
+}
+
+.signature_img{
+    width: 35%;
+    height: 35%;
+}
