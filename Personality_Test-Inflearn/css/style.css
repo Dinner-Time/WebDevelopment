@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to{opacity: 1;}
+}
+
+@keyframes fadeOut {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to{opacity: 1;}
+}
+
+@-webkit-keyframes fadeOut {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+body{
+    background-color: pink;
+    font-family: 'Cafe24Ssurround';
+}
+
+#main {
+    background-color: whitesmoke;
+    width: 80%;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#main>h1 {
+    font-size: 1.8rem;
+}
+
+#qna {
+    display: none;
+}
+
+.qBox {
+    background-color: whitesmoke;
+    text-align: center;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.answerList {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    display: block;
+    width: 80%;
+    border: 0;
+    font-size: 12px;
+}
+
+.answerList:hover {
+    background-color: pink;
+    color: whitesmoke;
+    box-shadow: 1px 1px 20px whitesmoke;
+}
+
+.status {
+    height: 20px;
+    width: 80%;
+    border-radius: 20px;
+    background-color: whitesmoke;
+}
+
+.statusBar {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(#F0D9E7, #FF94CC);
+}
+
+#result {
+    display: none;
+    background-color: whitesmoke;
+    width: 80%;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#result>h1 {
+    font-size: 1.8rem;
+}
+
+.resultDesc {
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.kakao {
+    background-color: #fee500;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.kakao:hover {
+    background-color: whitesmoke;
+    color: #fee500;
+}
