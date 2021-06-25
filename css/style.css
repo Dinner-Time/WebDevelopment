@@ -1,15 +1,39 @@
-#toyprojects{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 25px;
+body{
+    background-color: #CEE5D0;
 }
 
-#toyprojects > a{
-    margin-bottom: 10px;
+#introduction{
+    display: flex;
+    align-items: center;
 }
 
 .signature_img{
-    width: 35%;
-    height: 35%;
+    margin: 3vmin;
+    width: 15rem;
+}
+
+.name{
+    margin-right: 3vmin;
+    font-size: 2.5rem;
+}
+
+#toyprojects{
+    font-size: 2rem;
+    margin-left: 3vmin;
+}
+
+#toyprojects>div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#toyprojects>div>a {
+    font-size: 1rem;
+    margin-top: 25px;
+    color: black;
+}
+
+footer {
+    text-align: center;
 }
