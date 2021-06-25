@@ -1,34 +1,32 @@
-body{
+body {
     background-color: #CEE5D0;
 }
 
-#introduction{
+#introduction {
     display: flex;
     align-items: center;
 }
 
-.signature_img{
+.signature_img {
     margin: 3vmin;
     width: 15rem;
 }
 
-.name{
+.name {
     margin-right: 3vmin;
     font-size: 2.5rem;
 }
 
-#toyprojects{
+#toyprojects {
     font-size: 2rem;
     margin-left: 3vmin;
 }
 
-#toyprojects>div {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.toyprojects_list {
+    display: block;
 }
 
-#toyprojects>div>a {
+.toyprojects_list>a {
     font-size: 1rem;
     margin-top: 25px;
     color: black;
