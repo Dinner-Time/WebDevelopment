@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="plugins/web-fonts-with-css/css/all.css">
+    <script src="js/jquery.1.12.4.js" type="text/javascript"></script>
+    <script src="plugins/bxslider/js/jquery.bxslider.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('.slider').bxSlider({
+                controls: false,
+                mode: 'fade',
+                pager: false,
+                auto: true,
+                pause: 3000,
+                speed: 1500,
+            });
+        });
+    </script>
+    <script>
+        jQuery(function ($) {
+            window.onresize = function () {
+                document.location.reload();
+            };
+        });
+    </script>
+    <title>Simple Portfolio</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="slider">
+        <div class="background_01"></div>
+        <div class="background_02"></div>
+        <div class="background_03"></div>
+    </div>
+    <div class="contents">
+        <p class="contents_name">Bak, Tae Hun</p>
+        <p class="contents_signature">
+            I'm aimming for the greatest programer.
+            <br>
+            <br> Meet Me, Dinner-Time!!
+        </p>
+        <div class="contents_contacts">
+            <a href="https://github.com/Dinner-Time" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/?lang=ko" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
