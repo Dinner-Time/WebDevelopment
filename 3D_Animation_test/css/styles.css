@@ -1,4 +1,4 @@
-.container{
+.container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -8,21 +8,22 @@
 }
 
 @keyframes rotrot1 {
-    0%{
+    0% {
         transform: rotateY(30deg);
     }
-    100%{
+
+    100% {
         transform: rotateY(-30deg);
     }
 }
 
 @keyframes hover {
-    100%{
-        transform: translateZ(100px);
+    100% {
+        transform: translateZ(80px);
     }
 }
 
-.practice{
+.practice {
     background-color: #003b6f;
     border-radius: 10px;
     width: 200px;
@@ -33,18 +34,32 @@
     transform-style: preserve-3d;
 }
 
-.pr-content:nth-of-type(1){
-    transform: translateZ(30px);
+.pr-title {
+    padding: 0.6em;
+    font-size: 1.8rem;
 }
 
-.pr-content:nth-of-type(2){
+.pr-content {
+    padding: 0.8em;
+    font-size: 1.2rem;
+}
+
+.pr-content:nth-of-type(1) {
+    transform: translateZ(10px);
+}
+
+.pr-content:nth-of-type(2) {
     transform: translateZ(20px);
 }
 
+.pr-content:nth-of-type(3) {
+    transform: translateZ(30px);
+}
+
 .practice:hover,
- .pr-content:nth-of-type(1):hover ,
- .pr-content:nth-of-type(2):hover ,
- .pr-content:nth-of-type(3):hover 
-{
+.pr-title:hover,
+.pr-content:nth-of-type(1):hover,
+.pr-content:nth-of-type(2):hover,
+.pr-content:nth-of-type(3):hover {
     animation: hover 0.5s forwards;
 }
