@@ -1,0 +1,9 @@
+/* css file */
+
+.container{
+    height: 100vh;
+}
+
+.one{
+    background-image: url(./img/a.jpg);
+}
