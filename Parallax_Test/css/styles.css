@@ -1,9 +1,47 @@
 /* css file */
 
-.container{
+.background{
     height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-.one{
-    background-image: url(./img/a.jpg);
+.background>p{
+    font-size: 4rem;
+    height: 2em;
+    width: 100vw;
+    padding: 1em;
+    color: black;
+    text-align: center;
+    background-color: burlywood;
+    box-shadow: 1px 1px 20px black;
+}
+
+.middle{
+    align-self: center;
+    max-width: 30vw;
+}
+
+.background:nth-child(1){
+    background-image: url(../img/a.jpg);
+}
+
+.background:nth-child(2){
+    background-image: url(../img/b.jpg);
+}
+
+.background:nth-child(3){
+    background-image: url(../img/c.jpg);
+}
+
+.background:nth-child(4){
+    background-image: url(../img/c.jpg);
+}
+
+.background:nth-child(5){
+    background-image: url(../img/c.jpg);
 }
