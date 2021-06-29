@@ -1,35 +1,35 @@
 /* css file */
-.container {
-    background-image: url(../img/logo.jpg);
+.background{
+    height: 100vh;
+    width: 100vw;
+    background-color: #003b6f;
+}
+
+.bg-img{
+    content: "";
+    width: inherit;
+    height: inherit;
+    opacity: .65;
     background-attachment: fixed;
-    background-size: cover;
     background-position: center;
-}
-
-.background {
-    height: 60vh;
-    background-attachment: fixed;
     background-size: cover;
-    background-position: center;
+    height: 80vh;
 }
 
-.text{
-    height: 30vh;
-}
-
-.background:first-of-type,
-.background:last-of-type {
+.img-1{
+    background-image: url(../img/a.jpg);
     height: 100vh;
 }
-
-.background:nth-of-type(3n-2) {
-    background-image: url(../img/a.jpg);
+.img-2{
+    background-image: url(../img/9th_doctor.gif);
+}
+.img-3{
+    background-image: url(../img/10th_doctor.gif);
+}
+.img-4{
+    background-image: url(../img/11th_doctor.gif);
+}
+.img-5{
+    background-image: url(../img/12th_doctor.gif);
 }
 
-.background:nth-of-type(3n-1) {
-    background-image: url(../img/b.jpg);
-}
-
-.background:nth-of-type(3n) {
-    background-image: url(../img/c.jpg);
-}
