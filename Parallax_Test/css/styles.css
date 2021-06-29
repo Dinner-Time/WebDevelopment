@@ -1,47 +1,35 @@
 /* css file */
-
-.background{
-    height: 100vh;
+.container {
+    background-image: url(../img/logo.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
 }
 
-.background>p{
-    font-size: 4rem;
-    height: 2em;
-    width: 100vw;
-    padding: 1em;
-    color: black;
-    text-align: center;
-    background-color: burlywood;
-    box-shadow: 1px 1px 20px black;
+.background {
+    height: 60vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
-.middle{
-    align-self: center;
-    max-width: 30vw;
+.text{
+    height: 30vh;
 }
 
-.background:nth-child(1){
+.background:first-of-type,
+.background:last-of-type {
+    height: 100vh;
+}
+
+.background:nth-of-type(3n-2) {
     background-image: url(../img/a.jpg);
 }
 
-.background:nth-child(2){
+.background:nth-of-type(3n-1) {
     background-image: url(../img/b.jpg);
 }
 
-.background:nth-child(3){
-    background-image: url(../img/c.jpg);
-}
-
-.background:nth-child(4){
-    background-image: url(../img/c.jpg);
-}
-
-.background:nth-child(5){
+.background:nth-of-type(3n) {
     background-image: url(../img/c.jpg);
 }
