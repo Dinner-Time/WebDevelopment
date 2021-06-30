@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>돌림판</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        h1{
+            font-size: 2rem;
+        }
+        button{
+            font-size: 2rem;
+            padding: 0.5em 1.5em;
+            cursor: pointer;
+        }
+        .arrowWrap{
+            margin: 2.5rem;
+        }
+
+        .arrowWrap img{
+            /* ceaser 사이트 참고 */
+            transition: all 1.5s cubic-bezier(0.085, 1.345, 0.990, 1.105);
+            width: 30%;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            const resetBtn = document.querySelector(".resetBtn");
+            const startBtn = document.querySelector(".startBtn");
+            const arrow = document.querySelector(".arrow");
+            const h1 = document.getElementsByTagName("h1")[0];
+
+            var rotateNum = 0;
+
+            resetBtn.addEventListener("click", function(){
+                rotateNum = 0;
+                h1.innerHTML = rotateNum + "deg";
+                arrow.style.transform = "rotate(" + rotateNum + "deg)";
+            });
+
+            startBtn.addEventListener("click", function(){
+                rotateNum = Math.round(Math.random() * 360) + 360;
+                h1.innerHTML = rotateNum - 360 + "deg";
+                arrow.style.transform = "rotate(" + rotateNum + "deg)";
+            });
+        };
+
+
+    </script>
+</head>
+<body>
+    <button type="button" class="resetBtn">리셋</button>
+    <button type="button" class="startBtn">시작</button>
+    <h1>0deg</h1>
+    <div class="arrowWrap">
+        <img src="./image/up-arrow.svg" alt="arrow" class="arrow">
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <style>
+        h1{
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        button{
+            font-size: 1.3rem;
+            padding: 0.5em 1.5em;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            
+            var button = document.querySelector(".startBtn"); //.startBtn과 button을 연결
+            var h1 = document.getElementsByTagName("h1")[0]; //첫번쨰 h1태그와 h1을 연결
+
+            const handArr = ["가위", "바위", "보"]; 
+
+            // 버튼을 클릭 할 때,
+            button.addEventListener("click", function(){
+                // 0~2(배열의 요소 갯수 -1) 사이의 무작위 정수를 생성하고
+                var num = Math.round(Math.random() * (handArr.length - 1));
+                // 변수 h1에 handArr 배열의 요소를 재 정의 한다.(innerHTML > html파일 내의 텍스트를 바꿔줌)
+                h1.innerHTML = handArr[num];
+            });
+        }
+    </script>
+</head>
+<body>
+    <button type="button" class="startBtn">리셋</button>
+    <h1>가위</h1>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업다운 게임</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .conWrap {
+            border-radius: 10px;
+            background-color: #e6e6e6;
+            text-align: center;
+            padding: 1em;
+            font-weight: bold;
+        }
+
+        h2 {
+            padding: 1em;
+        }
+
+        input {
+            font-size: 20px;
+            text-align: center;
+            margin-top: 1em;
+            width: 5em;
+            height: 2em;
+        }
+
+        .confirm {
+            font-size: 20px;
+            padding: 0.4em 1.25em;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const input = document.getElementsByTagName("input")[0];
+            const result = document.querySelector(".result");
+            const button = document.querySelector(".confirm");
+            const resultArr = ["UP!", "DOWN!", "YOU RIGHT!!"];
+
+            var randNum = Math.round(Math.random() * 10);
+            var gameCnt = 1;
+
+            button.addEventListener("click", function () {
+                calc();
+            });
+
+            function calc() {
+                const choice = input.value
+                if (choice < randNum) {
+                    result.innerHTML = resultArr[0];
+                } else if (choice > randNum) {
+                    result.innerHTML = resultArr[1];
+                } else {
+                    result.innerHTML = "1초 뒤 다시 시작";
+                    alert(resultArr[2]);
+                    gameCnt++;
+                    setTimeout(function () {
+                        resetFunc();
+                    }, 1000);
+                }
+            };
+
+            function resetFunc() {
+                result.innerHTML = gameCnt + "판째"
+                input.value = 1;
+                randNum = Math.round(Math.random() * 10);
+            };
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="conWrap">
+        <h2>내가 생각한 숫자는 몇 일까요~?</h2>
+        <p class="result">1판째</p>
+        <input type="number" value="1" max="10" min="1">
+        <button type="button" class="confirm">확인</button>
+    </div>
+</body>
+
+</html>
