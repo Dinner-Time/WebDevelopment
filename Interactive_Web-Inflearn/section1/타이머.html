@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 1fr 3fr;
+        }
+        .wrapper{
+            grid-row: 2;
+            justify-self: center;
+            font-size: 3rem;
+            text-align: center;
+        }
+        .startBtn{
+            font-size: 3rem;
+            width: 200px;
+            height: 75px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            const button = document.querySelector(".startBtn");
+            const num = document.querySelector(".num");
+
+            var timer;
+
+            button.addEventListener("click", function(){
+                startTimer();
+            });
+
+            function startTimer(){
+                clearInterval(timer);
+
+                var timerNum = 0;
+                timer = setInterval(() => {
+                    timerNum++;
+                    num.innerHTML = timerNum;
+                }, 10);
+            }
+        };
+    </script>
+    <title>타이머 | Meet me Dinner-Time!!</title>
+</head>
+<body>
+    <div class="wrapper">
+        <button class="startBtn" type="button">시작</button>
+        <h1 class="num">0</h1>
+    </div>
+</body>
+</html>
