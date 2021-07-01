@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이징 배경 | Meet me Dinner-Time!!</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            transition: background 1.25s ease-in-out;
+        }
+        div{
+            text-align: center;
+            width: 50%;
+        }
+        button{
+            margin: 20px 0;
+            width: 5em;
+            height: 2em;
+            font-size: 2rem;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            const prevBtn = document.querySelector(".prevBtn");
+            const nextBtn = document.querySelector(".nextBtn");
+            const h1 = document.getElementsByTagName("h1")[0];
+            const bgArr = ["#C9E4C5", "#FFEDA3", "#B5EAEA", "#BEAEE2", "#D6D2C4"]
+
+            var page = 1;
+            var totalPage = 5;
+
+            bgColor();
+            prevBtn.addEventListener("click", function(){
+                page--;
+                if(page < 1){
+                    page = 5;
+                }
+                bgColor();
+            });
+            
+            nextBtn.addEventListener("click", function(){
+                page++;
+                if(page > totalPage){
+                    page = 1;
+                }
+                bgColor();
+            });
+
+            function bgColor(){
+                document.getElementsByTagName("body")[0].style.background = bgArr[page-1];
+                h1.innerHTML = page + "페이지 입니다."
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button class="prevBtn">PREV</button>
+        <button class="nextBtn">NEXT</button>
+        <h1>1페이지 입니다.</h1>
+    </div>
+</body>
+</html>
