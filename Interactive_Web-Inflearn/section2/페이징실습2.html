@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>페이징 실습 두번째 | Meet me Dinner-Time!!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* border: 1px solid #000; */
+        }
+
+        body {
+            background-color: #e8e19b;
+            overflow-x: hidden;
+            font-size: 2vmin;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+
+        section {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+        }
+
+        .title {
+            position: relative;
+            justify-content: center;
+            text-align: center;
+            left: 30%;
+            width: 40%;
+        }
+
+        .fixed-container {
+            position: fixed;
+            right: 7%;
+        }
+
+        .pic {
+            position: absolute;
+            right: 3%;
+            width: 47%;
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            position: absolute;
+            right: 0;
+        }
+
+        ul li {
+            background-color: #aaa;
+            width: 1em;
+            height: 1em;
+            margin-top: 1.5em;
+            border-radius: 50%;
+            display: none;
+        }
+
+        ul li:hover {
+            background-color: #000;
+            cursor: pointer;
+        }
+
+        .page {
+            position: relative;
+            top: -23%;
+            left: 7%;
+            max-width: 31%;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            const pics = document.querySelectorAll(".pic");
+            const points = document.querySelectorAll("ul li");
+            const pages = document.querySelectorAll(".page");
+
+            var pageNum = 0;
+
+            for (var i = 0; i < points.length; i++) {
+                (function (idx) {
+                    points[idx].onclick = function () {
+                        //alert(idx);
+                        pageNum = idx;
+                        toggle();
+
+                        window.scrollTo({
+                            top: pages[pageNum].offsetTop,
+                            behavior: 'smooth',
+                        })
+                    }
+                })(i);
+            }
+
+            window.addEventListener("scroll", function () {
+                var scroll = this.scrollY;
+                for (var i = 0; i < pages.length; i++) {
+                    if (scroll < pages[0].offsetTop - window.outerHeight / 2) {
+                        inactive();
+                        break;
+                    } else if (scroll > pages[i].offsetTop - window.outerHeight / 2 &&
+                        scroll < pages[i].offsetTop + window.outerHeight / 2) {
+                        pageNum = i;
+                        toggle();
+                        break;
+                    }
+                }
+            });
+
+            function inactive() {
+                for (var i = 0; i < pages.length; i++) {
+                    pics[i].classList.remove("active");
+                    points[i].classList.remove("active");
+                }
+            }
+
+            function toggle() {
+                for (var i = 0; i < pages.length; i++) {
+                    pics[i].classList.remove("active");
+                    points[i].classList.add("active");
+                    points[i].style.backgroundColor = "#aaa";
+                }
+                pics[pageNum].classList.add("active");
+                points[pageNum].style.backgroundColor = "#000";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <section class="fixed-container">
+        <img class="pic" src="./image/pic_1.jpg" alt="">
+        <img class="pic" src="./image/pic_2.jpg" alt="">
+        <img class="pic" src="./image/pic_3.jpg" alt="">
+        <img class="pic" src="./image/pic_4.jpg" alt="">
+        <img class="pic" src="./image/pic_5.jpg" alt="">
+        <img class="pic" src="./image/pic_6.jpg" alt="">
+        <img class="pic" src="./image/pic_7.jpg" alt="">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+    <section class="title">
+        <h1>페이징 실습 두번째</h1>
+    </section>
+    <section>
+        <div class="page">
+            <h1>page1</h1>
+            <p>웅대한 미묘한 이상 가치를 봄바람이다.
+                청춘은 같지 사람은 끓는 인생을 가는 것이다.
+                뜨고, 낙원을 미묘한 아니더면, 철환하였는가?
+                그들에게 설산에서 청춘에서만 사람은 철환하였는가?
+                이상은 속잎나고, 청춘 우리 길을 말이다.
+                모래뿐일 방황하였으며, 오직 보이는 발휘하기 황금시대를 인도하겠다는 말이다.
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="page">
+            <h1>page2</h1>
+            <p>웅대한 미묘한 이상 가치를 봄바람이다.
+                청춘은 같지 사람은 끓는 인생을 가는 것이다.
+                뜨고, 낙원을 미묘한 아니더면, 철환하였는가?
+                그들에게 설산에서 청춘에서만 사람은 철환하였는가?
+                이상은 속잎나고, 청춘 우리 길을 말이다.
+                모래뿐일 방황하였으며, 오직 보이는 발휘하기 황금시대를 인도하겠다는 말이다.
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="page">
+            <h1>page3</h1>
+            <p>웅대한 미묘한 이상 가치를 봄바람이다.
+                청춘은 같지 사람은 끓는 인생을 가는 것이다.
+                뜨고, 낙원을 미묘한 아니더면, 철환하였는가?
+                그들에게 설산에서 청춘에서만 사람은 철환하였는가?
+                이상은 속잎나고, 청춘 우리 길을 말이다.
+                모래뿐일 방황하였으며, 오직 보이는 발휘하기 황금시대를 인도하겠다는 말이다.
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="page">
+            <h1>page4</h1>
+            <p>웅대한 미묘한 이상 가치를 봄바람이다.
+                청춘은 같지 사람은 끓는 인생을 가는 것이다.
+                뜨고, 낙원을 미묘한 아니더면, 철환하였는가?
+                그들에게 설산에서 청춘에서만 사람은 철환하였는가?
+                이상은 속잎나고, 청춘 우리 길을 말이다.
+                모래뿐일 방황하였으며, 오직 보이는 발휘하기 황금시대를 인도하겠다는 말이다.
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="page">
+            <h1>page5</h1>
+            <p>웅대한 미묘한 이상 가치를 봄바람이다.
+                청춘은 같지 사람은 끓는 인생을 가는 것이다.
+                뜨고, 낙원을 미묘한 아니더면, 철환하였는가?
+                그들에게 설산에서 청춘에서만 사람은 철환하였는가?
+                이상은 속잎나고, 청춘 우리 길을 말이다.
+                모래뿐일 방황하였으며, 오직 보이는 발휘하기 황금시대를 인도하겠다는 말이다.
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="page">
+            <h1>page6</h1>
+            <p>웅대한 미묘한 이상 가치를 봄바람이다.
+                청춘은 같지 사람은 끓는 인생을 가는 것이다.
+                뜨고, 낙원을 미묘한 아니더면, 철환하였는가?
+                그들에게 설산에서 청춘에서만 사람은 철환하였는가?
+                이상은 속잎나고, 청춘 우리 길을 말이다.
+                모래뿐일 방황하였으며, 오직 보이는 발휘하기 황금시대를 인도하겠다는 말이다.
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="page">
+            <h1>page7</h1>
+            <p>웅대한 미묘한 이상 가치를 봄바람이다.
+                청춘은 같지 사람은 끓는 인생을 가는 것이다.
+                뜨고, 낙원을 미묘한 아니더면, 철환하였는가?
+                그들에게 설산에서 청춘에서만 사람은 철환하였는가?
+                이상은 속잎나고, 청춘 우리 길을 말이다.
+                모래뿐일 방황하였으며, 오직 보이는 발휘하기 황금시대를 인도하겠다는 말이다.
+            </p>
+        </div>
+    </section>
+
+</body>
+
+</html>
