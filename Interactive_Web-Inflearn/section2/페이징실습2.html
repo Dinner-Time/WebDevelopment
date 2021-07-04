@@ -87,17 +87,19 @@
         window.onload = function () {
             const pics = document.querySelectorAll(".pic");
             const points = document.querySelectorAll("ul li");
-            const pages = document.querySelectorAll(".page");
+            const pages = document.querySelectorAll(".page-container");
 
             var pageNum = 0;
+
+            window.scrollTo({
+                top: pages[0].offsetTop,
+            })
 
             for (var i = 0; i < points.length; i++) {
                 (function (idx) {
                     points[idx].onclick = function () {
-                        //alert(idx);
                         pageNum = idx;
                         toggle();
-
                         window.scrollTo({
                             top: pages[pageNum].offsetTop,
                             behavior: 'smooth',
@@ -163,7 +165,7 @@
     <section class="title">
         <h1>페이징 실습 두번째</h1>
     </section>
-    <section>
+    <section class="page-container">
         <div class="page">
             <h1>page1</h1>
             <p>웅대한 미묘한 이상 가치를 봄바람이다.
@@ -175,7 +177,7 @@
             </p>
         </div>
     </section>
-    <section>
+    <section class="page-container">
         <div class="page">
             <h1>page2</h1>
             <p>웅대한 미묘한 이상 가치를 봄바람이다.
@@ -187,7 +189,7 @@
             </p>
         </div>
     </section>
-    <section>
+    <section class="page-container">
         <div class="page">
             <h1>page3</h1>
             <p>웅대한 미묘한 이상 가치를 봄바람이다.
@@ -199,7 +201,7 @@
             </p>
         </div>
     </section>
-    <section>
+    <section class="page-container">
         <div class="page">
             <h1>page4</h1>
             <p>웅대한 미묘한 이상 가치를 봄바람이다.
@@ -211,7 +213,7 @@
             </p>
         </div>
     </section>
-    <section>
+    <section class="page-container">
         <div class="page">
             <h1>page5</h1>
             <p>웅대한 미묘한 이상 가치를 봄바람이다.
@@ -223,7 +225,7 @@
             </p>
         </div>
     </section>
-    <section>
+    <section class="page-container">
         <div class="page">
             <h1>page6</h1>
             <p>웅대한 미묘한 이상 가치를 봄바람이다.
@@ -235,7 +237,7 @@
             </p>
         </div>
     </section>
-    <section>
+    <section class="page-container">
         <div class="page">
             <h1>page7</h1>
             <p>웅대한 미묘한 이상 가치를 봄바람이다.
