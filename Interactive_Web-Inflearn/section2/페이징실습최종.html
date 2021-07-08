@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이키 운동화 사이트 | Meet me Dinner-Time!!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        section {
+            height: 100%;
+            width: 100%;
+            font-size: 1.5vmin;
+        }
+
+        .titleWrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .titleWrap .title {
+            position: relative;
+            top: -5%;
+            font-size: 4em;
+            z-index: 10;
+        }
+
+        .page {
+            position: relative;
+            top: 30%;
+            left: 5%;
+            background-color: rgba(255, 255, 255, .3);
+            width: 28em;
+            padding: 3em;
+            z-index: 10;
+        }
+
+        .page h1 {
+            margin-bottom: 1em;
+        }
+
+        .page p {
+            line-height: 1.7;
+            font-size: 1.2em;
+        }
+
+        .fixedWrap {
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .fixedWrap .imgWrap{
+            position: relative;
+            width: 100%;
+        }
+
+        .fixedWrap .imgWrap img{
+            position: absolute;
+            width: 30%;
+            max-width: 30em;
+            opacity: 0;
+            transition: all 1s ease-in-out;
+        }
+
+        .fixedWrap .imgWrap img:nth-child(2n+1){
+            right: 30%;
+            transform : translate(-100px, -150px) rotate(-10deg);
+        }
+
+        .fixedWrap .imgWrap img:nth-child(2n){
+            right: 0;
+            bottom: 0;
+            transform : translate(100px, 150px) rotate(-10deg);
+        }        
+
+        .fixedWrap .btnWrap {
+            position: absolute;
+            right: 0;
+        }
+
+        .fixedWrap .btnWrap li {
+            width: 1.2em;
+            height: 1.2em;
+            background-color: #aaa;
+            border-radius: 50%;
+            margin: 1.5em;
+            list-style: none;
+            transition: background-color .3s ease-out;
+        }
+
+        .fixedWrap .btnWrap li:hover {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            const pageWrap = document.querySelectorAll(".pageWrap");
+            const btn = document.querySelectorAll(".btnWrap li");
+            const imgs = document.querySelectorAll(".imgWrap img");
+
+            var pageNum = 0;
+
+            window.scrollTo({
+                top: 1,
+            })
+
+            for (var i = 0; i < btn.length; i++) {
+                (function (idx) {
+                    btn[idx].onclick = function () {
+                        pageNum = idx;
+                        window.scrollTo({
+                            top: pageWrap[pageNum].offsetTop,
+                            behavior: 'smooth',
+                        })
+                    }
+                })(i);
+            }
+
+            window.addEventListener("scroll", function () {
+                var scroll = this.scrollY;
+                for (var i = 0; i < pageWrap.length; i++) {
+                    if (scroll > pageWrap[i].offsetTop - window.outerHeight / 2.5 &&
+                        scroll < pageWrap[i].offsetTop + window.outerHeight / 2.5) {
+                        pageNum = i;
+                        btnActive();
+                        pageAcive();
+                        break;
+                    }
+                }
+            });
+
+            function btnActive(){
+                for(var i=0; i<btn.length; i++){
+                    btn[i].style.backgroundColor = "#aaa";
+                }
+                btn[pageNum].style.backgroundColor = "#000"
+            }
+
+            function pageAcive(){
+                for(var i=0; i<imgs.length; i++){
+                    imgs[i].style.opacity = "0";
+                    if(i%2==0){
+                        imgs[i].style.transform = "translate(-100px, -150px) rotate(-10deg)";
+                    } else{
+                        imgs[i].style.transform = "translate(100px, 150px) rotate(-10deg)";
+                    }
+                }
+                if(pageNum!=0){
+                    imgs[(pageNum-1)*2].style.opacity = "1";
+                    imgs[(pageNum-1)*2].style.transform = "translate(0,0)";
+                    imgs[(pageNum-1)*2 + 1].style.opacity = "1";
+                    imgs[(pageNum-1)*2 + 1].style.transform = "translate(0,0)";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <section class="titleWrap pageWrap">
+        <div class="title">
+            <h1>NIKE 스니커즈</h1>
+        </div>
+    </section>
+    <section class="pageWrap">
+        <div class="page">
+            <h1>블레이저 미드 '77 빈티지</h1>
+            <p>나이키 블레이저 미드 '77 빈티지는 빈티지한 중창 마감 처리로
+                나이키 올드 스쿨 농구화의 느낌을 살렸으며, 마치 수년간 보관해온 듯한 룩을 연출합니다.</p>
+        </div>
+    </section>
+    <section class="pageWrap">
+        <div class="page">
+            <h1>에어맥스 95</h1>
+            <p>나이키 에어맥스 95에는 놀랄만큼 편안한 착화감과 편안함과 시선을 사로 잡는 스타일, 그리고 재생 소재가 어우러져 있습니다. 펠트,메쉬 그리고 인조 가죽의 풍부한 텍스처를 선보이며 클래식
+                러닝 DNA에 새로운 디자인을 선사합니다. 적당히 두툼한 디자인과 부드러운 에어 쿠셔닝, 그리고 나이키 그라인드 고무 밑창으로 트렌드를 선도합니다. 이 제품은 중량 기준 20% 이상 재생
+                소재로 제작했습니다.</p>
+        </div>
+    </section>
+    <section class="pageWrap">
+        <div class="page">
+            <h1>리액트 비전 3M</h1>
+            <p>나이키 리액트 비전은 나이키 리액트 기술과 더없이 폭신한 설포로 차원이 다른 편안함을 제공합니다. 다양한 텍스처와 과장된 비율이 3M™ 디테일과 결합되어 초현실적인 독특한 감각을 더해
+                줍니다.</p>
+        </div>
+    </section>
+    <section class="fixedWrap">
+
+        <div class="imgWrap">
+            <img src="./image/nike_1_1.JPG" alt="">
+            <img src="./image/nike_1_2.JPG" alt="">
+            <img src="./image/nike_2_1.JPG" alt="">
+            <img src="./image/nike_2_2.JPG" alt="">
+            <img src="./image/nike_3_1.JPG" alt="">
+            <img src="./image/nike_3_2.JPG" alt="">
+        </div>
+        
+        <ul class="btnWrap">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
+</body>
+
+</html>
