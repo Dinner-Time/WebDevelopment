@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: blanchedalmond;
+    font-family: sans-serif;
+}
+
+.box{
+    position: relative;
+    width: 40vw;
+    min-width: 400px;
+    padding: 5em;
+    background-color: rgba(0, 0, 0, .8);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 20px;
+}
+
+.box h2{
+    margin-bottom: 30px;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+}
+
+.box .loginBox{
+    position: relative;
+}
+
+.box .loginBox input{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.box .loginBox label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.box .loginBox input:focus ~ label{
+    top: -18px;
+    left: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.box input[type="submit"]{
+    position: absolute;
+    right: 5em;
+    font-size: 16px;
+    padding: .5em;
+    border: none;
+    border-radius: 10px;
+}
