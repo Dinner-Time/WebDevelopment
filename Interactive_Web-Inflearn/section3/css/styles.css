@@ -1,0 +1,89 @@
+body {
+  overflow: hidden;
+}
+
+.contentWrap {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0074a4), to(#f99c57));
+  background: linear-gradient(#0074a4, #f99c57);
+  min-width: 100vw;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contentWrap .album {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  width: 60vw;
+  height: 40vh;
+}
+
+.buttonWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  bottom: 3vh;
+  height: 4vh;
+  width: 100%;
+  text-align: center;
+}
+
+.buttonWrap button {
+  font-size: 1rem;
+  padding: 0 20px;
+  margin: 0 10px;
+  background-color: #000;
+  color: #fff;
+  border: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.buttonWrap button:hover {
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+
+.buttonWrap .pointWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buttonWrap .pointWrap li {
+  width: 1rem;
+  height: 1rem;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.buttonWrap .pointWrap li:hover {
+  background-color: #000;
+  cursor: pointer;
+}
+/*# sourceMappingURL=styles.css.map */
