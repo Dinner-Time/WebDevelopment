@@ -1,15 +1,11 @@
+html,
 body {
-  display: block;
+  overflow: hidden;
 }
 
 .contentWrap {
-  position: relative;
-  top: 0;
-  left: 0;
   width: 100vw;
   min-height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0074a4), to(#f99c57));
-  background: linear-gradient(#0074a4, #f99c57);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,11 +33,11 @@ body {
   height: 400px;
 }
 
-@media only screen and (max-width: 720px) {
+@media (max-width: 720px) {
   .contentWrap .album {
-    width: 300px;
-    height: 200px;
-    left: -15px;
+    width: 90vmin;
+    height: 60vmin;
+    left: -5vw;
   }
 }
 
@@ -51,6 +47,8 @@ body {
   width: 70%;
   height: 100%;
   z-index: 1;
+  -webkit-box-shadow: 4px 14px 40px rgba(0, 0, 0, 0.3);
+          box-shadow: 4px 14px 40px rgba(0, 0, 0, 0.3);
   -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -62,6 +60,8 @@ body {
 
 .contentWrap .album .coverImg.active {
   display: block;
+  -webkit-animation: imgAnimation 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation: imgAnimation 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .contentWrap .album .disk {
@@ -82,10 +82,10 @@ body {
   background: linear-gradient(120deg, #000, #333333, #000);
   -webkit-box-shadow: 4px 14px 40px rgba(0, 0, 0, 0.3);
           box-shadow: 4px 14px 40px rgba(0, 0, 0, 0.3);
-  -webkit-animation: rotAnimation 4s infinite linear;
-          animation: rotAnimation 4s infinite linear;
   -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation: rotAnimation 4s infinite linear;
+          animation: rotAnimation 4s infinite linear;
 }
 
 .contentWrap .album .disk .disk_inner {
@@ -103,6 +103,12 @@ body {
   background-color: #0473a4;
   border-radius: 50%;
   border: 3px dashed rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 720px) {
+  .contentWrap .album .disk .disk_inner {
+    border-width: 1px;
+  }
 }
 
 .contentWrap .album .disk .disk_inner::after {
@@ -136,7 +142,7 @@ body {
   text-align: center;
 }
 
-@media only screen and (max-width: 720px) {
+@media (max-width: 720px) {
   .buttonWrap {
     height: 2vh;
   }
@@ -152,7 +158,7 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-@media only screen and (max-width: 720px) {
+@media (max-width: 720px) {
   .buttonWrap button {
     font-size: 0.5rem;
   }
@@ -178,7 +184,7 @@ body {
   margin: 0 20px;
 }
 
-@media only screen and (max-width: 720px) {
+@media (max-width: 720px) {
   .buttonWrap .pointWrap {
     width: 50px;
     margin: 0 10px;
@@ -192,9 +198,11 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 50%;
   cursor: pointer;
+  -webkit-transition: background .4s ease-out;
+  transition: background .4s ease-out;
 }
 
-@media only screen and (max-width: 720px) {
+@media (max-width: 720px) {
   .buttonWrap .pointWrap li {
     width: 0.5rem;
     height: 0.5rem;
@@ -216,6 +224,32 @@ body {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes imgAnimation {
+  0% {
+    opacity: .5;
+    -webkit-transform: translateX(15%);
+            transform: translateX(15%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes imgAnimation {
+  0% {
+    opacity: .5;
+    -webkit-transform: translateX(15%);
+            transform: translateX(15%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
   }
 }
 /*# sourceMappingURL=styles.css.map */

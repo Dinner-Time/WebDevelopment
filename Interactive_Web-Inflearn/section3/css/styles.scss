@@ -1,18 +1,15 @@
 $fullFontSize : 1rem;
 $mobileFontSize : .5rem;
-$mobile: "only screen and (max-width: 720px)";
+$mobile: "(max-width: 720px)";
 
+html,
 body {
-    display: block;
+    overflow: hidden;
 }
 
 .contentWrap {
-    position: relative;
-    top: 0;
-    left: 0;
     width: 100vw;
     min-height: 100vh;
-    background: linear-gradient(#0074a4, #f99c57);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,9 +24,9 @@ body {
         height: 400px;
 
         @media #{$mobile} {
-            width: 300px;
-            height: 200px;
-            left: -15px;
+            width: 90vmin;
+            height: 60vmin;
+            left: -5vw;
         }
 
         .coverImg {
@@ -38,6 +35,7 @@ body {
             width: 70%;
             height: 100%;
             z-index: 1;
+            box-shadow: 4px 14px 40px rgba(0, 0, 0, .3);
             transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
             img {
@@ -45,8 +43,9 @@ body {
                 height: 100%;
             }
 
-            &.active{
+            &.active {
                 display: block;
+                animation: imgAnimation .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             }
         }
 
@@ -61,8 +60,8 @@ body {
             border-radius: 50%;
             background: linear-gradient(120deg, #000, #333333, #000);
             box-shadow: 4px 14px 40px rgba(0, 0, 0, .3);
-            animation: rotAnimation 4s infinite linear;
             transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: rotAnimation 4s infinite linear;
 
             .disk_inner {
                 display: flex;
@@ -73,6 +72,10 @@ body {
                 background-color: #0473a4;
                 border-radius: 50%;
                 border: 3px dashed rgba(255, 255, 255, .4);
+
+                @media #{$mobile} {
+                    border-width: 1px;
+                }
 
                 &::after {
                     content: "";
@@ -147,6 +150,7 @@ body {
             background-color: rgba(0, 0, 0, .4);
             border-radius: 50%;
             cursor: pointer;
+            transition: background .4s ease-out;
 
             @media #{$mobile} {
                 width: $mobileFontSize;
@@ -164,5 +168,16 @@ body {
     100% {
         transform: rotate(360deg);
     }
+}
 
+@keyframes imgAnimation {
+    0% {
+        opacity: .5;
+        transform: translateX(15%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
 }
