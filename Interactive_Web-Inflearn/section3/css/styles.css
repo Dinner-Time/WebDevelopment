@@ -1,12 +1,15 @@
 body {
-  overflow: hidden;
+  display: block;
 }
 
 .contentWrap {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
   background: -webkit-gradient(linear, left top, left bottom, from(#0074a4), to(#f99c57));
   background: linear-gradient(#0074a4, #f99c57);
-  min-width: 100vw;
-  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,6 +23,7 @@ body {
 
 .contentWrap .album {
   position: relative;
+  left: -30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,17 +37,22 @@ body {
   height: 400px;
 }
 
-.contentWrap .album .coverImg {
-  width: 80%;
-  height: 100%;
-  z-index: 1;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+@media only screen and (max-width: 720px) {
+  .contentWrap .album {
+    width: 300px;
+    height: 200px;
+    left: -15px;
+  }
 }
 
-.contentWrap .album .coverImg:hover {
-  -webkit-transform: translateX(-10%);
-          transform: translateX(-10%);
+.contentWrap .album .coverImg {
+  display: none;
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .contentWrap .album .coverImg img {
@@ -51,18 +60,65 @@ body {
   height: 100%;
 }
 
-.contentWrap .album .disk {
-  width: 80%;
-  height: 100%;
-  position: absolute;
-  border-radius: 50%;
-  right: -5%;
-  background-color: #000;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+.contentWrap .album .coverImg.active {
+  display: block;
 }
 
-.contentWrap .album .disk:hover {
+.contentWrap .album .disk {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  right: -5%;
+  width: 60%;
+  height: 90%;
+  border-radius: 50%;
+  background: linear-gradient(120deg, #000, #333333, #000);
+  -webkit-box-shadow: 4px 14px 40px rgba(0, 0, 0, 0.3);
+          box-shadow: 4px 14px 40px rgba(0, 0, 0, 0.3);
+  -webkit-animation: rotAnimation 4s infinite linear;
+          animation: rotAnimation 4s infinite linear;
+  -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contentWrap .album .disk .disk_inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40%;
+  height: 40%;
+  background-color: #0473a4;
+  border-radius: 50%;
+  border: 3px dashed rgba(255, 255, 255, 0.4);
+}
+
+.contentWrap .album .disk .disk_inner::after {
+  content: "";
+  width: 10%;
+  height: 10%;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.contentWrap .album:hover .coverImg {
+  -webkit-transform: translateX(-15%);
+          transform: translateX(-15%);
+}
+
+.contentWrap .album:hover .disk {
   right: -10%;
 }
 
@@ -74,20 +130,32 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   position: fixed;
-  bottom: 3vh;
+  bottom: 5vh;
   height: 4vh;
   width: 100%;
   text-align: center;
 }
 
+@media only screen and (max-width: 720px) {
+  .buttonWrap {
+    height: 2vh;
+  }
+}
+
 .buttonWrap button {
   font-size: 1rem;
-  padding: 0 20px;
+  padding: 0 1em;
   background-color: #000;
   color: #fff;
   border: 0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 720px) {
+  .buttonWrap button {
+    font-size: 0.5rem;
+  }
 }
 
 .buttonWrap button:hover {
@@ -106,8 +174,15 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 8%;
-  margin: 0 2%;
+  width: 100px;
+  margin: 0 20px;
+}
+
+@media only screen and (max-width: 720px) {
+  .buttonWrap .pointWrap {
+    width: 50px;
+    margin: 0 10px;
+  }
 }
 
 .buttonWrap .pointWrap li {
@@ -119,7 +194,28 @@ body {
   cursor: pointer;
 }
 
-.buttonWrap .pointWrap li:active {
+@media only screen and (max-width: 720px) {
+  .buttonWrap .pointWrap li {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
+
+.buttonWrap .pointWrap li.active {
   background-color: #000;
+}
+
+@-webkit-keyframes rotAnimation {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotAnimation {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 /*# sourceMappingURL=styles.css.map */

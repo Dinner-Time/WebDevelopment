@@ -1,57 +1,96 @@
-$btnWrapFontSize : 1rem;
+$fullFontSize : 1rem;
+$mobileFontSize : .5rem;
+$mobile: "only screen and (max-width: 720px)";
 
 body {
-    overflow: hidden;
+    display: block;
 }
 
 .contentWrap {
-    background: linear-gradient(#0074a4, #f99c57);
-    min-width: 100vw;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
     min-height: 100vh;
+    background: linear-gradient(#0074a4, #f99c57);
     display: flex;
     justify-content: center;
     align-items: center;
 
     .album {
         position: relative;
+        left: -30px;
         display: flex;
         justify-content: center;
         align-items: center;
-        // border: 1px solid black;
         width: 600px;
         height: 400px;
 
+        @media #{$mobile} {
+            width: 300px;
+            height: 200px;
+            left: -15px;
+        }
+
         .coverImg {
-            width: 80%;
+            display: none;
+            position: absolute;
+            width: 70%;
             height: 100%;
             z-index: 1;
-            transition: all .4s ease-in-out;
-
-            &:hover {
-                transform: translateX(-10%);
-            }
+            transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
             img {
                 width: 100%;
                 height: 100%;
             }
+
+            &.active{
+                display: block;
+            }
         }
 
-        .disk{
-            width: 80%;
-            height: 100%;
+        .disk {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: absolute;
-            border-radius: 50%;
             right: -5%;
-            background-color: #000;
-            transition: all .4s ease-in-out;
+            width: 60%;
+            height: 90%;
+            border-radius: 50%;
+            background: linear-gradient(120deg, #000, #333333, #000);
+            box-shadow: 4px 14px 40px rgba(0, 0, 0, .3);
+            animation: rotAnimation 4s infinite linear;
+            transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-            &:hover{
-                right: -10%;
+            .disk_inner {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40%;
+                height: 40%;
+                background-color: #0473a4;
+                border-radius: 50%;
+                border: 3px dashed rgba(255, 255, 255, .4);
+
+                &::after {
+                    content: "";
+                    width: 10%;
+                    height: 10%;
+                    background-color: black;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        &:hover {
+            .coverImg {
+                transform: translateX(-15%);
             }
 
-            .disk_inner{
-
+            .disk {
+                right: -10%;
             }
         }
     }
@@ -61,18 +100,26 @@ body {
     display: flex;
     justify-content: center;
     position: fixed;
-    bottom: 3vh;
+    bottom: 5vh;
     height: 4vh;
     width: 100%;
     text-align: center;
 
+    @media #{$mobile} {
+        height: 2vh;
+    }
+
     button {
-        font-size: $btnWrapFontSize;
-        padding: 0 20px;
+        font-size: $fullFontSize;
+        padding: 0 1em;
         background-color: #000;
         color: #fff;
         border: 0;
         transition: all 0.3s ease-in-out;
+
+        @media #{$mobile} {
+            font-size: $mobileFontSize;
+        }
 
         &:hover {
             background-color: #fff;
@@ -85,20 +132,37 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 8%;
-        margin: 0 2%;
+        width: 100px;
+        margin: 0 20px;
+
+        @media #{$mobile} {
+            width: 50px;
+            margin: 0 10px;
+        }
 
         li {
-            width: $btnWrapFontSize;
-            height: $btnWrapFontSize;
+            width: $fullFontSize;
+            height: $fullFontSize;
             list-style: none;
             background-color: rgba(0, 0, 0, .4);
             border-radius: 50%;
             cursor: pointer;
 
-            &:active {
+            @media #{$mobile} {
+                width: $mobileFontSize;
+                height: $mobileFontSize;
+            }
+
+            &.active {
                 background-color: #000;
             }
         }
     }
+}
+
+@keyframes rotAnimation {
+    100% {
+        transform: rotate(360deg);
+    }
+
 }
