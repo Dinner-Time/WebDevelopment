@@ -1,0 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: cadetblue;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ssmp-flex{
+    display: flex;
+}
+
+.ssmp-flex.justifySpace{
+    justify-content: space-between;
+}
+
+.ssmp-flex.justifyCenter{
+    justify-content: center;
+}
+
+.ssmp-flex.alignCenter{
+    align-items: center;
+}
+
+.ssmp-anchor{
+    text-decoration: none;
+}
+
+.ssmp-anchor:hover{
+    text-decoration: underline;
+}
+
+/* color, background color */
+.ssmp-white{
+    color: #fff;
+}
+
+.ssmp-gray{
+    color: #bbb;
+}
+/* color, background color */
+
+/* login form basic */
+.ssmp-login{
+    background-color: rgba(0,0,0,.75);
+    width: 450px;
+    min-height: 650px;
+    padding: 50px;
+}
+
+.ssmp-loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ssmp-login .ssmp-loginForm>div{
+    width: 100%;
+    margin: 15px 0;
+}
+/* login form basic */
+
+/* input placeholder 효과 */
+.ssmp-input {
+    position: relative;
+    height: 50px;
+    margin-top: 15px;
+}
+
+.ssmp-input .ssmp-inputText,
+.ssmp-input .ssmp-inputLabel{
+    position: absolute;
+    font-size: 20px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.ssmp-input .ssmp-inputText {
+    font-size: 16px;
+    padding: 1.3em;
+    padding-bottom: .5em;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.ssmp-input .ssmp-inputLabel {
+    padding: .5em 1.3em;
+    color: #bbb;
+    pointer-events: none;
+    transition: .2s ease;
+}
+
+.ssmp-input .ssmp-inputText:focus{
+    background-color: #666;
+}
+
+.ssmp-input .ssmp-inputText:focus~.ssmp-inputLabel {
+    left: 1em;
+    font-size: 10px;
+}
+/* input placeholder 효과 */
+
+/* button styles */
+
+/* -- netflix style */
+.ssmp-btn .ssmp-netflix{
+    background-color: #e50914;
+    font-size: 20px;
+    color: #fff;
+    width: 100%;
+    border: none;
+    padding: .7em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ssmp-btn .ssmp-netflix:hover{
+    opacity: .85;
+}
+
+/* button styles */
+
+/* 반응형 */
+@media (max-width:720px) {
+    body{
+        display: block;
+        background-color: #000;
+    }
+    .ssmp-login{
+        width: 100vw;
+        height: 60vh;
+        border-bottom: 1px solid #666;
+    }
+}
